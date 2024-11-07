@@ -1,0 +1,27 @@
+version: "3.8"
+
+services:
+  postgres:
+    image: postgres:15
+    container_name: prisma_postgres
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      POSTGRES_DB: ${POSTGRES_DB}
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  # prisma:
+  #   image: node:18
+  #   container_name: prisma
+  #   working_dir: /app
+  #   volumes:
+  #     - .:/app
+  #   depends_on:
+  #     - postgres
+  #   entrypoint: ["sh", "-c", "npm install && npx prisma generate && tail -f /dev/null"]
+
+volumes:
+  pgdata:
