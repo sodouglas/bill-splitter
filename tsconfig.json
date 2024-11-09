@@ -11,18 +11,12 @@
     /* Path Aliases */
     "baseUrl": ".",
     "paths": {
-      "~/*": ["./src/*"],
+      "~/*": ["./*"],
       "@/*": ["./*"]
     }
   },
   "extends": ["expo/tsconfig.base"],
-  "include": [
-    "**/*.ts",
-    "**/*.tsx",
-    "eslint.config.js",
-    "src/apps/expo/.expo/types/**/*.ts",
-    "src/apps/expo/expo-env.d.ts"
-  ],
+  "include": ["**/*.ts", "**/*.tsx", "eslint.config.js"],
   "exclude": [
     "node_modules",
     "babel.config.js",

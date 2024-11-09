@@ -6,26 +6,28 @@ import { z } from "zod";
 const prisma = new PrismaClient();
 
 const appRouter = router({
-  userList: publicProcedure.query(async () => {
-    const users = await prisma.user.findMany();
-    return users;
-  }),
-  userById: publicProcedure.input(z.string()).query(async (opts) => {
-    const { input } = opts;
-    const user = await prisma.user.findUnique({
-      where: { id: Number(input) },
-    });
-    return user;
-  }),
-  createUser: publicProcedure
-    .input(z.object({ email: z.string(), name: z.string() }))
-    .mutation(async (opts) => {
+  user: router({
+    users: publicProcedure.query(async () => {
+      const users = await prisma.user.findMany();
+      return users;
+    }),
+    byId: publicProcedure.input(z.string()).query(async (opts) => {
       const { input } = opts;
-      const user = await prisma.user.create({
-        data: input,
+      const user = await prisma.user.findUnique({
+        where: { id: Number(input) },
       });
       return user;
     }),
+    create: publicProcedure
+      .input(z.object({ email: z.string(), name: z.string() }))
+      .mutation(async (opts) => {
+        const { input } = opts;
+        const user = await prisma.user.create({
+          data: input,
+        });
+        return user;
+      }),
+  }),
 });
 
 export type AppRouter = typeof appRouter;

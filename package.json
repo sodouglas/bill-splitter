@@ -27,7 +27,9 @@
     "@expo/vector-icons": "^14.0.2",
     "@prisma/client": "^5.22.0",
     "@react-navigation/native": "^6.0.2",
+    "@tanstack/react-query": "^5.59.20",
     "@trpc/client": "^11.0.0-rc.608",
+    "@trpc/react-query": "^11.0.0-rc.608",
     "@trpc/server": "^11.0.0-rc.608",
     "expo": "~51.0.28",
     "expo-camera": "~15.0.16",
@@ -49,6 +51,7 @@
     "react-native-safe-area-context": "4.10.5",
     "react-native-screens": "3.31.1",
     "react-native-web": "~0.19.10",
+    "react-query": "^3.39.3",
     "zod": "^3.23.8"
   },
   "devDependencies": {

@@ -13,7 +13,12 @@
       "backgroundColor": "#ffffff"
     },
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "infoPlist": {
+        "NSAppTransportSecurity": {
+          "NSAllowsArbitraryLoads": true
+        }
+      }
     },
     "android": {
       "adaptiveIcon": {
@@ -26,7 +31,7 @@
       "output": "static"
     },
     "plugins": [
-      "expo-router",
+      ["expo-router", { "root": "./src/app" }],
       [
         "expo-image-picker",
         {

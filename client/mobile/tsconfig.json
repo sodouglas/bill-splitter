@@ -1,10 +1,12 @@
 {
   "compilerOptions": {
-    // paths
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "strict": true,
+    // path aliases
     "baseUrl": ".",
     "paths": {
-      "~/*": ["./src/*"],
-      "@/*": ["./*"]
+      "~/*": ["../../*"]
     }
   },
   "extends": "expo/tsconfig.base",
